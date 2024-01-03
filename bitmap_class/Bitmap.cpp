@@ -33,9 +33,9 @@ bool Bitmap::write(string filename) {
 		return false;
 	}
 
-	file.write((char *)&fileHeader, sizeof(fileHeader));
-	file.write((char *)&infoHeader, sizeof(infoHeader));
-	file.write((char *)m_pPixels.get(), m_width*m_height*3);
+	file.write((char *) &fileHeader, sizeof(fileHeader));
+	file.write((char *) &infoHeader, sizeof(infoHeader));
+	file.write((char *) m_pPixels.get(), m_width * m_height * 3);
 
 	file.close();
 
@@ -47,17 +47,17 @@ bool Bitmap::write(string filename) {
 }
 
 void Bitmap::setPixel(int x, int y, uint8_t red, uint8_t green, uint8_t blue) {
-	uint8_t *pPixels = m_pPixels.get();
-	pPixels += (y * 3) * m_width + (x * 3);
+	uint8_t *pPixel = m_pPixels.get();
 
-	pPixels[0] = blue;
-	pPixels[1] = green;
-	pPixels[2] = red;
+	pPixel += (y * 3) * m_width + (x * 3);
 
+	pPixel[0] = blue;
+	pPixel[1] = green;
+	pPixel[2] = red;
 }
 
 Bitmap::~Bitmap() {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace ab_bitmap */
+} 

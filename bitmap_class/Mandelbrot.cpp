@@ -1,32 +1,37 @@
-#include "Mandelbrot.h"
 #include <complex>
+#include "Mandelbrot.h"
 
 using namespace std;
 
-namespace ab_bitmap{
+namespace ab_bitmap {
 
-Mandelbrot::Mandelbrot(){
-
-}
-
-Mandelbrot::~Mandelbrot(){
+Mandelbrot::Mandelbrot() {
+	// TODO Auto-generated constructor stub
 
 }
 
-int Mandelbrot::getIterations(double x, double y){
-    complex<double> z = 0;
-    complex<double> c(x,y);
-    int iterations = 0;
+Mandelbrot::~Mandelbrot() {
+	// TODO Auto-generated destructor stub
+}
 
-    while(iterations < MAX_ITERATIONS){
-        z = z*z + c;
-        if(abs(z) > 2){
-            break;
-        }
-        iterations++;
+int Mandelbrot::getIterations(double x, double y) {
 
-    }
-    return iterations;
+	complex<double> z = 0;
+	complex<double> c(x, y);
+
+	int iterations = 0;
+
+	while(iterations < MAX_ITERATIONS) {
+		z = z*z + c;
+
+		if(abs(z) > 2) {
+			break;
+		}
+
+		iterations++;
+	}
+
+	return iterations;
 }
 
 }
